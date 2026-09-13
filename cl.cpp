@@ -31,25 +31,38 @@ public:
         }
     }
 
+    void pushattail(int val){
+        Node* newnode = new Node(val);
+        if (head == NULL){
+            head =tail = newnode;
+            tail -> next = head ;
+        }
+        else{
+            tail->next = newnode;
+            tail = newnode;
+            tail->next = head;
+        }
+    }
+
     void print(){
         Node* temp = head ;
-        if (head == tail){
-            cout << head->data<<"->";
-            
-        }
+        
         while (temp->next != head){
             cout<<temp->data<<" -> ";
             temp = temp->next;
-        }     
+        }
+        cout<<temp->data <<"->";     
         cout << " NULL ";
     }
 };
 int main(){
     Circularlist cl;
-    cl.pushathead(1);
     cl.pushathead(2);
-    cl.pushathead(3); 
-    cl.pushathead(4);
+    cl.pushathead(1);
+    
+    cl.pushattail(3);
+    cl.pushattail(4);
+    
     cl.print();
     return 0;
 }
