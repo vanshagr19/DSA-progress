@@ -63,11 +63,32 @@ public:
             tail->next = head ;
             delete temp;
 
-            // without using any temporary pointer 
+            // without using any temporary pointer
             // tail->next = head->next;
             // head ->next = NULL;
             // delete head ;
             // head = tail->next;
+        }
+    }
+
+    void deleteattail(){
+        if (head == NULL){
+            return ;
+        }
+        else if(head ==tail){
+            delete tail;
+            head = tail = NULL;
+            return ;
+        }
+        else{
+             Node* temp =head ;
+             while(temp->next != tail){
+                temp = temp->next;
+            }
+            temp->next = head;
+            tail->next = NULL;
+            delete tail;
+            tail =temp;
         }
     }
 
@@ -98,6 +119,9 @@ int main(){
 
     cl.deleteathead();
     cl.deleteathead();
+
+    cl.deleteattail();
+    cl.deleteattail();
 
     cl.print();
     return 0;
