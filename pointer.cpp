@@ -4,7 +4,7 @@ void change(int &b){
     b=20;
 }
 int main(){
-  int a =10 ;
-  change(a);
+  int x =10 ;
+  change(x);
   cout<<a;
 }
